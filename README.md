@@ -29,10 +29,10 @@ The architecture maintains a strict separation between content, frontend logic, 
 
 ```mermaid
 flowchart TD
-    UI[User Interface <br/> Layer 1: Landing | Layer 2: Explorer] --> FE[Frontend Layer <br/> index.html, app.js, styles.css]
-    FE --> Data[Local Data Layer <br/> data.json, local assets]
-    Data --> Shell[Electron Shell <br/> main.js, preload.js, package.json]
-    Shell --> App[Windows Desktop App <br/> Offline Runtime]
+    UI["User Interface - Layer 1 Landing and Layer 2 Explorer"] --> FE["Frontend Layer - index.html, app.js, styles.css"]
+    FE --> Data["Local Data Layer - data.json, local assets"]
+    Data --> Shell["Electron Shell - main.js, preload.js, package.json"]
+    Shell --> App["Windows Desktop App - Offline Runtime"]
 ```
 
 ---
