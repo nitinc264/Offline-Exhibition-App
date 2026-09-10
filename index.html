@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <meta
+    name="description"
+    content="CS Direkt Interactive Science Exhibition Explorer"
+  />
+  <title>CS Direkt | Science Exhibition Explorer</title>
+
+  <!-- Offline-ready: no external fonts, CDNs, scripts, or remote assets. -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- =========================================================
+       APP SHELL
+       ========================================================= -->
+  <div id="app" class="app-shell">
+
+    <!-- Top navigation -->
+    <header class="site-header">
+      <div class="nav-container">
+        <button
+          class="brand"
+          id="brandHomeBtn"
+          type="button"
+          aria-label="Return to exhibition home"
+        >
+          <span class="brand-mark" aria-hidden="true">CS</span>
+          <span class="brand-copy">
+            <span class="brand-title">CS Direkt</span>
+            <span class="brand-subtitle">Science Exhibition Explorer</span>
+          </span>
+        </button>
+
+        <nav class="top-nav" aria-label="Primary navigation">
+          <button class="nav-link active" type="button" data-nav="home">
+            Home
+          </button>
+          <button class="nav-link" type="button" data-nav="themes">
+            Explore
+          </button>
+          <button class="nav-link" type="button" data-nav="about">
+            About
+          </button>
+        </nav>
+
+        <div class="offline-badge" title="Designed to run with local data and assets">
+          <span class="status-dot" aria-hidden="true"></span>
+          Offline Ready
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         MAIN CONTENT
+         Layer 1 = landing / theme discovery
+         Layer 2 = exhibit details, rendered by app.js
+         ========================================================= -->
+    <main id="main-content">
+
+      <!-- =======================
+           LAYER 1: HOME
+           ======================= -->
+      <section id="home-view" class="view active-view" aria-labelledby="hero-title">
+
+        <!-- Hero -->
+        <div class="hero-section">
+          <div class="hero-container">
+            <div class="hero-copy">
+              <div class="eyebrow">CS DIREKT • INTERACTIVE EXHIBITION</div>
+
+              <h1 id="hero-title">
+                Explore Science.<br />
+                <span class="hero-accent">Think Beyond.</span>
+              </h1>
+
+              <p class="hero-description">
+                Discover a five-floor journey through space, physics, human life,
+                Earth systems, and the future of food and agriculture.
+              </p>
+
+              <div class="hero-actions">
+                <button
+                  id="exploreBtn"
+                  class="primary-btn"
+                  type="button"
+                  data-action="explore"
+                >
+                  Explore Exhibition
+                  <span aria-hidden="true">→</span>
+                </button>
+
+                <button
+                  id="overviewBtn"
+                  class="secondary-btn"
+                  type="button"
+                  data-action="overview"
+                >
+                  View Overview
+                </button>
+              </div>
+
+              <div class="hero-meta" aria-label="Exhibition statistics">
+                <div class="hero-stat">
+                  <strong id="totalExhibits">100</strong>
+                  <span>Exhibits</span>
+                </div>
+                <div class="hero-stat">
+                  <strong id="totalFloors">5</strong>
+                  <span>Floors</span>
+                </div>
+                <div class="hero-stat">
+                  <strong id="interactiveExhibits">61</strong>
+                  <span>Interactive</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+              <div class="orbit orbit-one"></div>
+              <div class="orbit orbit-two"></div>
+              <div class="orbit orbit-three"></div>
+
+              <div class="hero-core">
+                <span class="core-label">SCIENCE</span>
+                <span class="core-number">01</span>
+              </div>
+
+              <div class="floating-card floating-card-top">
+                <span class="floating-number">05</span>
+                <span>
+                  <b>Future-ready</b>
+                  <small>Agriculture & Food</small>
+                </span>
+              </div>
+
+              <div class="floating-card floating-card-bottom">
+                <span class="floating-number">61</span>
+                <span>
+                  <b>Interactive</b>
+                  <small>Hands-on learning</small>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Theme section -->
+        <section id="themes-section" class="section-block" aria-labelledby="themes-title">
+          <div class="section-container">
+            <div class="section-heading">
+              <div>
+                <div class="eyebrow">THE VISITOR JOURNEY</div>
+                <h2 id="themes-title">Choose a floor</h2>
+              </div>
+              <p>
+                Five connected themes turn the exhibition into one continuous
+                story — from cosmic scale to future-focused solutions.
+              </p>
+            </div>
+
+            <div
+              id="themeGrid"
+              class="theme-grid"
+              aria-live="polite"
+              aria-label="Exhibition themes"
+            >
+              <!-- app.js populates theme cards from data.json -->
+              <div class="loading-card">
+                <div class="loading-pulse"></div>
+                <span>Loading exhibition themes…</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Experience strip -->
+        <section class="experience-strip">
+          <div class="section-container experience-grid">
+            <div class="experience-intro">
+              <div class="eyebrow">DESIGNED FOR ACTIVE DISCOVERY</div>
+              <h2>Sense → Explore → Decide</h2>
+              <p>
+                Move from observation to interaction and then to meaningful
+                choices using the exhibition's hands-on experiences.
+              </p>
+            </div>
+
+            <div class="experience-item">
+              <span class="experience-index">01</span>
+              <h3>Sense</h3>
+              <p>Visual and motion-led cues reveal patterns.</p>
+            </div>
+
+            <div class="experience-item">
+              <span class="experience-index">02</span>
+              <h3>Explore</h3>
+              <p>Hands-on interaction connects concepts to action.</p>
+            </div>
+
+            <div class="experience-item">
+              <span class="experience-index">03</span>
+              <h3>Decide</h3>
+              <p>Test choices, compare outcomes and think forward.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Offline proof -->
+        <section class="section-block">
+          <div class="section-container">
+            <div class="offline-panel">
+              <div class="offline-panel-icon" aria-hidden="true">⌁</div>
+
+              <div>
+                <div class="eyebrow">OFFLINE-FIRST DESIGN</div>
+                <h2>Built to work without runtime internet.</h2>
+                <p>
+                  Exhibition content is stored locally in <code>data.json</code>,
+                  while HTML, CSS, JavaScript and assets are bundled with the app.
+                </p>
+              </div>
+
+              <div class="offline-checks">
+                <span>✓ Local data</span>
+                <span>✓ Local assets</span>
+                <span>✓ No CDN dependency</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- =======================
+           LAYER 2: EXPLORE
+           ======================= -->
+      <section
+        id="explore-view"
+        class="view"
+        aria-labelledby="explore-title"
+        hidden
+      >
+        <div class="section-container detail-container">
+
+          <div class="detail-topbar">
+            <button
+              id="backHomeBtn"
+              class="back-btn"
+              type="button"
+              data-action="home"
+            >
+              ← Back to Home
+            </button>
+
+            <div class="breadcrumb" aria-label="Breadcrumb">
+              <span>Exhibition</span>
+              <span aria-hidden="true">/</span>
+              <strong id="breadcrumbTheme">Explore</strong>
+            </div>
+          </div>
+
+          <div class="detail-hero">
+            <div>
+              <div class="eyebrow" id="floorLabel">FLOOR</div>
+              <h1 id="explore-title">Explore a theme</h1>
+              <p id="exploreDescription">
+                Select a theme to discover its exhibits.
+              </p>
+            </div>
+
+            <div class="detail-count">
+              <span id="detailCount">0</span>
+              <small>exhibits</small>
+            </div>
+          </div>
+
+          <div class="explore-layout">
+
+            <!-- Theme selector -->
+            <aside class="theme-sidebar" aria-label="Theme selector">
+              <div class="sidebar-label">THEMES</div>
+              <div id="themeList" class="theme-list">
+                <!-- app.js populates -->
+              </div>
+            </aside>
+
+            <!-- Exhibit listing -->
+            <div class="exhibit-panel">
+              <div class="panel-toolbar">
+                <div>
+                  <h2 id="exhibitsHeading">Exhibits</h2>
+                  <p id="exhibitsSubheading">Select an exhibit for details.</p>
+                </div>
+
+                <div class="search-wrap">
+                  <label class="sr-only" for="exhibitSearch">
+                    Search exhibits
+                  </label>
+                  <input
+                    id="exhibitSearch"
+                    type="search"
+                    placeholder="Search exhibits…"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+
+              <div
+                id="exhibitGrid"
+                class="exhibit-grid"
+                aria-live="polite"
+              >
+                <!-- app.js populates -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================
+           LAYER 2: EXHIBIT DETAIL MODAL/PANEL
+           ======================= -->
+      <div
+        id="exhibitModal"
+        class="modal-backdrop"
+        hidden
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <article class="exhibit-modal">
+
+          <button
+            id="closeModalBtn"
+            class="modal-close"
+            type="button"
+            aria-label="Close exhibit details"
+          >
+            ×
+          </button>
+
+          <div class="modal-eyebrow" id="modalFloor">FLOOR</div>
+          <h2 id="modalTitle">Exhibit title</h2>
+          <div class="modal-theme" id="modalTheme">Theme</div>
+
+          <div class="modal-body">
+            <section class="modal-section">
+              <span class="modal-label">ABOUT THE EXHIBIT</span>
+              <p id="modalDescription"></p>
+            </section>
+
+            <section class="modal-section">
+              <span class="modal-label">KEY LEARNING</span>
+              <p id="modalLearning"></p>
+            </section>
+
+            <section class="modal-section interaction-box">
+              <span class="modal-label">VISITOR INTERACTION</span>
+              <p id="modalInteraction"></p>
+            </section>
+
+            <div class="modal-tags">
+              <span id="modalType" class="tag"></span>
+              <span id="modalMedia" class="tag"></span>
+            </div>
+          </div>
+
+          <button
+            id="modalBackBtn"
+            class="primary-btn modal-back-btn"
+            type="button"
+          >
+            Continue Exploring
+          </button>
+        </article>
+      </div>
+
+      <!-- =======================
+           ABOUT
+           ======================= -->
+      <section
+        id="about-view"
+        class="view"
+        aria-labelledby="about-title"
+        hidden
+      >
+        <div class="section-container about-container">
+          <div class="about-hero">
+            <div class="eyebrow">ABOUT THIS PROTOTYPE</div>
+            <h1 id="about-title">A local-first exhibition experience.</h1>
+            <p>
+              This two-layer web prototype demonstrates how structured exhibition
+              data can become an interactive digital experience that remains
+              functional without runtime internet access.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <article class="about-card">
+              <span class="about-number">01</span>
+              <h2>Layer 1</h2>
+              <p>
+                Landing page with exhibition overview, theme navigation,
+                statistics and visitor-journey framing.
+              </p>
+            </article>
+
+            <article class="about-card">
+              <span class="about-number">02</span>
+              <h2>Layer 2</h2>
+              <p>
+                Theme exploration and individual exhibit details with useful
+                search and interaction.
+              </p>
+            </article>
+
+            <article class="about-card">
+              <span class="about-number">03</span>
+              <h2>Offline</h2>
+              <p>
+                Data and assets are local, enabling the web experience to be
+                bundled into a Windows application later.
+              </p>
+            </article>
+
+            <article class="about-card">
+              <span class="about-number">04</span>
+              <h2>Packaging</h2>
+              <p>
+                The same web layer can be wrapped with Electron or Tauri for
+                desktop distribution.
+              </p>
+            </article>
+          </div>
+
+          <button
+            class="primary-btn"
+            type="button"
+            data-action="home"
+          >
+            ← Return to Exhibition
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <span>CS Direkt • Interactive Science Exhibition Explorer</span>
+        <span>Local-first prototype • Task 2</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Local JavaScript only: offline-safe -->
+  <script src="app.js" defer></script>
+</body>
+</html>

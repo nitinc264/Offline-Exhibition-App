@@ -1,0 +1,57 @@
+{
+  "name": "cs-direkt-exhibition-explorer",
+  "version": "1.0.0",
+  "description": "Offline-ready CS Direkt Science Exhibition Explorer",
+  "main": "main.js",
+  "author": "CS Direkt AI Intern Assessment",
+
+  "scripts": {
+    "start": "electron .",
+    "build:portable": "electron-builder --win portable",
+    "build:win": "electron-builder --win nsis"
+  },
+
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^26.15.3"
+  },
+
+  "build": {
+    "appId": "com.csdirekt.exhibitionexplorer",
+    "productName": "CS Direkt Exhibition Explorer",
+
+    "directories": {
+      "output": "dist"
+    },
+
+    "files": [
+      "main.js",
+      "preload.js",
+      "package.json",
+      "web/**/*"
+    ],
+
+    "asar": true,
+
+    "win": {
+      "target": [
+        "portable",
+        "nsis"
+      ]
+    },
+
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+
+    "extraResources": [
+      {
+        "from": "web",
+        "to": "web"
+      }
+    ]
+  }
+}
